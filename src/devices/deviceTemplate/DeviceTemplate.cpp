@@ -18,7 +18,7 @@ using namespace yarp::os;
 using namespace yarp::dev;
 
 
-YARP_LOG_COMPONENT(DEVICETEMPLATE, "yarp.deviceTemaplate", yarp::os::Log::TraceType);
+YARP_LOG_COMPONENT(DEVICETEMPLATE, "yarp.deviceTemplate", yarp::os::Log::TraceType);
 
 
 DeviceTemplate::DeviceTemplate()
@@ -28,12 +28,14 @@ DeviceTemplate::DeviceTemplate()
 
 bool DeviceTemplate::open(yarp::os::Searchable &config)
 {
-    yCError(DEVICETEMPLATE) << "Open";
+    if (!parseParams(config))  { return false; }
+
+    yCInfo(DEVICETEMPLATE) << "Open";
     return true;
 }
 
 bool DeviceTemplate::close()
 {
-    yCError(DEVICETEMPLATE) << "Close";
+    yCInfo(DEVICETEMPLATE) << "Close";
     return true;
 }

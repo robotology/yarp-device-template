@@ -7,9 +7,11 @@
 #define YARP_DEVICETEMPLATE_H
 
 #include <yarp/dev/DeviceDriver.h>
+#include "DeviceTemplate_ParamsParser.h"
 
 class DeviceTemplate :
-        public yarp::dev::DeviceDriver
+        public yarp::dev::DeviceDriver,
+        public DeviceTemplate_ParamsParser
 {
 public:
     DeviceTemplate();

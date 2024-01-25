@@ -10,11 +10,14 @@ yarp_prepare_plugin(deviceTemplate
 
 if(NOT SKIP_deviceTemplate)
   yarp_add_plugin(yarp_deviceTemplate)
+  generateDeviceParamsParser(DeviceTemplate)
 
   target_sources(yarp_deviceTemplate
     PRIVATE
       DeviceTemplate.cpp
       DeviceTemplate.h
+      DeviceTemplate_ParamsParser.cpp
+      DeviceTemplate_ParamsParser.h
   )
 
   target_link_libraries(yarp_deviceTemplate
